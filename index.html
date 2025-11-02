@@ -1,53 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI-Powered Resume Management System</title>
+    <meta name="description" content="A sophisticated system for parsing, summarizing, and semantically searching candidate resumes using AI. Built for a software and system engineering business to streamline the hiring process.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'brand-primary': '#2563eb', // A slightly richer blue
-              'brand-secondary': '#3b82f6',
-              'brand-light': '#eff6ff',
-              'brand-dark': '#1e40af', // Darker blue for contrast
-              'slate': {
-                50: '#f8fafc',
-                100: '#f1f5f9',
-                200: '#e2e8f0',
-                300: '#cbd5e1',
-                400: '#94a3b8',
-                500: '#64748b',
-                600: '#475569',
-                700: '#334155',
-                800: '#1e293b',
-                900: '#0f172a',
-              },
-            },
-          },
-        },
-      }
+    <style type="text/tailwindcss">
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @layer base {
+          :root {
+            --brand-primary: 3, 105, 161; /* sky-700 */
+            --brand-dark: 7, 89, 133; /* sky-800 */
+            --brand-light: 224, 242, 254; /* sky-100 */
+            --brand-secondary: 2, 132, 199; /* sky-600 */
+          }
+        }
+
+        @layer components {
+          .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+          }
+
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        }
+    </style>
+     <script>
+        // Custom Tailwind Config
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-primary': 'rgb(var(--brand-primary) / <alpha-value>)',
+                'brand-dark': 'rgb(var(--brand-dark) / <alpha-value>)',
+                'brand-light': 'rgb(var(--brand-light) / <alpha-value>)',
+                'brand-secondary': 'rgb(var(--brand-secondary) / <alpha-value>)',
+              }
+            }
+          }
+        }
     </script>
-  <!-- Add Babel Standalone for in-browser JSX/TSX transpilation -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "@google/genai": "https://esm.sh/@google/genai",
-    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
-    "react/": "https://esm.sh/react@18.2.0/"
-  }
-}
-</script>
 </head>
-  <body class="bg-slate-100">
+<body class="bg-slate-100">
+    <!-- This is the root element where the React app will be mounted. -->
     <div id="root"></div>
-    <!-- Removed 'data-type="module"' to let Babel handle module resolution -->
-    <script type="text/babel" src="/index.tsx"></script>
-  </body>
+
+    <!-- Import Map for JS Modules -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0"
+      }
+    }
+    </script>
+    
+    <!-- Babel for in-browser JSX/TSX transpilation -->
+    <script src="https://unpkg.com/@babel/standalone@7.24.5/babel.min.js"></script>
+    
+    <!-- Application Entry Point -->
+    <script type="text/babel" data-presets="react,typescript" data-type="module" src="./index.tsx"></script>
+</body>
 </html>
