@@ -43,10 +43,6 @@ if (!localStorage.getItem('prod-candidates')) {
     saveStoredCandidates([]);
 }
 
-// Initialize AI
-// Fix: Use GoogleGenAI instead of the deprecated GoogleGenerativeAI.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 // --- User Management ---
 export const login = (username: string, password?: string): Promise<User> => {
     return new Promise((resolve, reject) => {
@@ -126,7 +122,10 @@ const fileToGenerativePart = async (file: File) => {
 };
 
 export const uploadResume = async (file: File): Promise<Candidate> => {
-    if (!process.env.API_KEY) throw new Error("API_KEY environment variable not set.");
+    if (!process.env.API_KEY) {
+        throw new Error("Gemini API key is not configured. Please set the VITE_GEMINI_API_KEY environment variable in your deployment settings.");
+    }
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const filePart = await fileToGenerativePart(file);
     const resumeTextContent = await file.text(); // A simple text extraction for the prompt
@@ -214,6 +213,11 @@ export const uploadResume = async (file: File): Promise<Candidate> => {
 };
 
 export const searchCandidates = async (query: string): Promise<Candidate[]> => {
+    if (!process.env.API_KEY) {
+        throw new Error("Gemini API key is not configured. Please set the VITE_GEMINI_API_KEY environment variable in your deployment settings.");
+    }
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
     const candidates = getStoredCandidates();
     if (candidates.length === 0) return [];
     
