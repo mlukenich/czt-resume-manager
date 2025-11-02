@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { getSession, clearSession, createSession } from '../services/api';
-import { Session, User } from '../types';
-import App from '../App';
-import Login from './Login';
-import { SpinnerIcon } from './IconComponents';
+import { getSession, clearSession, createSession } from '../services/api.ts';
+import { Session, User } from '../types.ts';
+import App from '../App.tsx';
+import Login from './Login.tsx';
+import { SpinnerIcon } from './IconComponents.tsx';
 
 export const AuthProvider: React.FC = () => {
     const [session, setSession] = useState<Session | null>(null);

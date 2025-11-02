@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { CloseIcon } from './IconComponents';
+import { CloseIcon } from './IconComponents.tsx';
 
 interface RoleTaggerProps {
   roles: string[];

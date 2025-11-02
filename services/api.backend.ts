@@ -5,7 +5,7 @@
 // 3. Update the `services/api.ts` file to export from this file instead of `api.prod.ts`.
 // 4. Configure your deployment environment (e.g., Netlify) to proxy requests from '/api/v1' to your backend server to avoid CORS issues.
 
-import { Candidate, User, Session } from '../types';
+import { Candidate, User, Session } from '../types.ts';
 
 const API_BASE_URL = '/api/v1'; // Using a relative path for proxying
 

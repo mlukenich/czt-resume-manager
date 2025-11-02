@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import { uploadResume } from '../services/api';
-import { Candidate } from '../types';
-import { UploadIcon, SpinnerIcon } from './IconComponents';
+import { uploadResume } from '../services/api.ts';
+import { Candidate } from '../types.ts';
+import { UploadIcon, SpinnerIcon } from './IconComponents.tsx';
 
 interface ResumeUploadProps {
   onUploadSuccess: (candidate: Candidate) => void;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { User } from '../types';
-import { getAllUsers, createUser, updateUserRole, deleteUser } from '../services/api';
+import { User } from '../types.ts';
+import { getAllUsers, createUser, updateUserRole, deleteUser } from '../services/api.ts';
 
 const INITIAL_ROLES = ['SWE', 'SE', 'CLOUD SWE', 'CLOUD ARCH', 'DBA', 'DBE', 'SA', 'DEVOPS'];
 

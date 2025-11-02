@@ -1,8 +1,8 @@
 // Fix: Implemented the Login component.
 import React, { useState } from 'react';
-import { User } from '../types';
-import { SpinnerIcon } from './IconComponents';
-import { login } from '../services/api';
+import { User } from '../types.ts';
+import { SpinnerIcon } from './IconComponents.tsx';
+import { login } from '../services/api.ts';
 
 interface LoginProps {
   onLoginSuccess: (user: User) => void;

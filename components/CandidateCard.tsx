@@ -1,5 +1,5 @@
 import React from 'react';
-import { Candidate } from '../types';
+import { Candidate } from '../types.ts';
 
 interface CandidateCardProps {
   candidate: Candidate;

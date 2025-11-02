@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { searchCandidates } from '../services/api';
-import { Candidate } from '../types';
-import { SearchIcon, SpinnerIcon } from './IconComponents';
-import { CandidateCard } from './CandidateCard';
+import { searchCandidates } from '../services/api.ts';
+import { Candidate } from '../types.ts';
+import { SearchIcon, SpinnerIcon } from './IconComponents.tsx';
+import { CandidateCard } from './CandidateCard.tsx';
 
 interface SemanticSearchProps {
   onSearch: (results: Candidate[]) => void;

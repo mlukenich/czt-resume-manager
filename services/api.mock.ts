@@ -1,5 +1,5 @@
 // Fix: Implemented the mock API with sample data.
-import { Candidate, User } from '../types';
+import { Candidate, User } from '../types.ts';
 
 let nextCandidateId = 4;
 const MOCK_CANDIDATES: Candidate[] = [

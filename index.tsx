@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AuthProvider } from './components/AuthProvider';
+import { AuthProvider } from './components/AuthProvider.tsx';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
