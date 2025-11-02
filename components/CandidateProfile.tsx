@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { getCandidateById } from '../services/api.ts';
-import { Candidate, TechnicalSkills, WorkExperience, CandidateNotes } from '../types.ts';
-import { SpinnerIcon, GithubIcon, LinkedInIcon, ExternalLinkIcon, EnvelopeIcon, PhoneIcon } from './IconComponents.tsx';
-import RoleTagger from './RoleTagger.tsx';
+import { getCandidateById } from '../services/api';
+import { Candidate, TechnicalSkills, WorkExperience, CandidateNotes } from '../types';
+import { SpinnerIcon, GithubIcon, LinkedInIcon, ExternalLinkIcon, EnvelopeIcon, PhoneIcon } from './IconComponents';
+import RoleTagger from './RoleTagger';
 
 // This is now just a default for the very first time the app is run
 const INITIAL_ROLES = ['SWE', 'SE', 'CLOUD SWE', 'CLOUD ARCH', 'DBA', 'DBE', 'SA', 'DEVOPS'];

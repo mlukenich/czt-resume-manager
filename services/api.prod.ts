@@ -5,7 +5,7 @@
 // For a real multi-user application, you would replace this file's logic with calls to a real backend server.
 // A blueprint for this can be found in `services/api.backend.ts`.
 
-import { Candidate, User } from '../types.ts';
+import { Candidate, User } from '../types';
 // Fix: Use GoogleGenAI instead of the deprecated GoogleGenerativeAI.
 import { GoogleGenAI, Type } from '@google/genai';
 

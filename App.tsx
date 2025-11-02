@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import ResumeUpload from './components/ResumeUpload.tsx';
-import SemanticSearch from './components/SemanticSearch.tsx';
-import CandidateProfile from './components/CandidateProfile.tsx';
-import { Candidate, User } from './types.ts';
-import { Header } from './components/Header.tsx';
-import { ToastContainer, Toast } from './components/Toast.tsx';
-import CandidateList from './components/CandidateList.tsx';
-import AdminPanel from './components/AdminPanel.tsx';
+import ResumeUpload from './components/ResumeUpload';
+import SemanticSearch from './components/SemanticSearch';
+import CandidateProfile from './components/CandidateProfile';
+import { Candidate, User } from './types';
+import { Header } from './components/Header';
+import { ToastContainer, Toast } from './components/Toast';
+import CandidateList from './components/CandidateList';
+import AdminPanel from './components/AdminPanel';
 
 interface AppProps {
   user: User;

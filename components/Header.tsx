@@ -1,6 +1,6 @@
 // Fix: Implemented the Header component.
 import React from 'react';
-import { User } from '../types.ts';
+import { User } from '../types';
 
 interface HeaderProps {
   user: User;

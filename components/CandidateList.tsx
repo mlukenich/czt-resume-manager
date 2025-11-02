@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { getAllCandidates } from '../services/api.ts';
-import { Candidate, CandidateNotes } from '../types.ts';
-import { SpinnerIcon } from './IconComponents.tsx';
+import { getAllCandidates } from '../services/api';
+import { Candidate, CandidateNotes } from '../types';
+import { SpinnerIcon } from './IconComponents';
 
 const INITIAL_ROLES = ['SWE', 'SE', 'CLOUD SWE', 'CLOUD ARCH', 'DBA', 'DBE', 'SA', 'DEVOPS'];
 
