@@ -1,3 +1,10 @@
+// --- IMPORTANT ---
+// This file provides a "production" API implementation that uses the browser's localStorage.
+// This is suitable for a single-user demonstration or portfolio piece as it provides data persistence across sessions.
+// However, it is NOT a true multi-user backend. All data is stored on the client-side.
+// For a real multi-user application, you would replace this file's logic with calls to a real backend server.
+// A blueprint for this can be found in `services/api.backend.ts`.
+
 import { Candidate, User } from '../types';
 // Fix: Use GoogleGenAI instead of the deprecated GoogleGenerativeAI.
 import { GoogleGenAI, Type } from '@google/genai';
