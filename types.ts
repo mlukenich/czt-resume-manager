@@ -16,6 +16,7 @@ export interface Candidate {
   id: number;
   name: string;
   email: string;
+  phone_number: string | null;
   years_of_experience: number;
   ai_summary: string;
   security_clearance: string | null;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getCandidateById } from '../services/api.ts';
 import { Candidate, TechnicalSkills, WorkExperience, CandidateNotes } from '../types.ts';
-import { SpinnerIcon, GithubIcon, LinkedInIcon, ExternalLinkIcon } from './IconComponents.tsx';
+import { SpinnerIcon, GithubIcon, LinkedInIcon, ExternalLinkIcon, EnvelopeIcon, PhoneIcon } from './IconComponents.tsx';
 import RoleTagger from './RoleTagger.tsx';
 
 // This is now just a default for the very first time the app is run
@@ -170,7 +170,18 @@ const CandidateProfile: React.FC<CandidateProfileProps> = ({ candidateId, onClos
       <div className="flex flex-col sm:flex-row justify-between sm:items-start pb-4">
         <div>
           <h2 className="text-3xl font-bold text-slate-800">{candidate.name}</h2>
-          <p className="text-md text-brand-secondary">{candidate.email}</p>
+          <div className="mt-2 space-y-1">
+             <div className="flex items-center">
+                <EnvelopeIcon />
+                <a href={`mailto:${candidate.email}`} className="text-md text-brand-secondary hover:underline">{candidate.email}</a>
+             </div>
+             {candidate.phone_number && (
+               <div className="flex items-center">
+                 <PhoneIcon />
+                 <a href={`tel:${candidate.phone_number}`} className="text-md text-slate-600 hover:underline">{candidate.phone_number}</a>
+               </div>
+             )}
+          </div>
           {candidate.security_clearance && (
             <div className="mt-2">
                 <p className="text-xs font-medium text-amber-800 bg-amber-100 inline-block px-2 py-0.5 rounded-full">Security Clearance: {candidate.security_clearance}</p>
