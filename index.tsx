@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 import { AuthProvider } from './components/AuthProvider';
 
 const rootElement = document.getElementById('root');

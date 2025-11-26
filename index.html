@@ -1,49 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-ak" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+<head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI-Powered Resume Management System</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'brand-primary': '#2563eb', // A slightly richer blue
-              'brand-secondary': '#3b82f6',
-              'brand-light': '#eff6ff',
-              'brand-dark': '#1e40af', // Darker blue for contrast
-              'slate': {
-                50: '#f8fafc',
-                100: '#f1f5f9',
-                200: '#e2e8f0',
-                300: '#cbd5e1',
-                400: '#94a3b8',
-                500: '#64748b',
-                600: '#475569',
-                700: '#334155',
-                800: '#1e293b',
-                900: '#0f172a',
-              },
-            },
-          },
-        },
-      }
-    </script>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "@google/genai": "https://esm.run/@google/genai"
-  }
-}
-</script>
+    <meta name="description" content="A sophisticated system for parsing, summarizing, and semantically searching candidate resumes using AI. Built for a software and system engineering business to streamline the hiring process.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
 </head>
-  <body class="bg-slate-100">
+<body class="bg-slate-100">
     <div id="root"></div>
-  </body>
+    <script type="module" src="/index.tsx"></script>
+</body>
 </html>

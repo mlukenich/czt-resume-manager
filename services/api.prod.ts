@@ -43,10 +43,6 @@ if (!localStorage.getItem('prod-candidates')) {
     saveStoredCandidates([]);
 }
 
-// Initialize AI
-// Fix: Use GoogleGenAI instead of the deprecated GoogleGenerativeAI.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 // --- User Management ---
 export const login = (username: string, password?: string): Promise<User> => {
     return new Promise((resolve, reject) => {
@@ -126,7 +122,10 @@ const fileToGenerativePart = async (file: File) => {
 };
 
 export const uploadResume = async (file: File): Promise<Candidate> => {
-    if (!process.env.API_KEY) throw new Error("API_KEY environment variable not set.");
+    if (!process.env.API_KEY) {
+        throw new Error("Gemini API key is not configured. Please ensure the API_KEY environment variable is set in your deployment settings.");
+    }
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const filePart = await fileToGenerativePart(file);
     const resumeTextContent = await file.text(); // A simple text extraction for the prompt
@@ -135,6 +134,7 @@ export const uploadResume = async (file: File): Promise<Candidate> => {
     {
         "name": "string",
         "email": "string",
+        "phone_number": "string | null",
         "years_of_experience": "number",
         "ai_summary": "string (A 2-3 sentence professional summary highlighting key skills and experience)",
         "security_clearance": "string | null",
@@ -165,6 +165,7 @@ export const uploadResume = async (file: File): Promise<Candidate> => {
             properties: {
                 name: { type: Type.STRING },
                 email: { type: Type.STRING },
+                phone_number: { type: Type.STRING },
                 years_of_experience: { type: Type.NUMBER },
                 ai_summary: { type: Type.STRING, description: "A 2-3 sentence professional summary highlighting key skills and experience" },
                 // Fix: `nullable` is not a valid property in responseSchema. The prompt is sufficient to instruct the model to return null.
@@ -214,6 +215,11 @@ export const uploadResume = async (file: File): Promise<Candidate> => {
 };
 
 export const searchCandidates = async (query: string): Promise<Candidate[]> => {
+    if (!process.env.API_KEY) {
+        throw new Error("Gemini API key is not configured. Please ensure the API_KEY environment variable is set in your deployment settings.");
+    }
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
     const candidates = getStoredCandidates();
     if (candidates.length === 0) return [];
     
